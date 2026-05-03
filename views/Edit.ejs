@@ -1,0 +1,23 @@
+<div class="container mt-5">
+
+  <h2>Edit Article</h2>
+<form action="/Edit/<%= article._id %>" method="POST">
+
+    <input 
+      type="text" 
+      name="title"
+      class="form-control mb-3" 
+      value="<%= article.title %>"
+    >
+
+    <textarea 
+      name="description"
+      class="form-control mb-3" 
+      rows="5"
+    ><%= article.Description %></textarea>
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a href="/" class="btn btn-secondary">Cancel</a>
+
+</form>
+</div>
