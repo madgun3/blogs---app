@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-
+require("dotenv").config();
 
 //call Db
 
@@ -124,10 +124,7 @@ app.delete("/articles/:id", async (req, res) => {
 
  
 // DB connect
-mongoose
-  .connect(
-    "mongodb://devabo:123123Aa@ac-ltaadle-shard-00-00.lxac4ln.mongodb.net:27017,ac-ltaadle-shard-00-01.lxac4ln.mongodb.net:27017,ac-ltaadle-shard-00-02.lxac4ln.mongodb.net:27017/?ssl=true&replicaSet=atlas-lt6x30-shard-0&authSource=admin&appName=Cluster0",
-  )
+mongoose.connect(process.env.MONGO_URL)
   .then(() => {
     app.listen(3000, () => {
       console.log("Server Starting now");
